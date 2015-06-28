@@ -117,6 +117,9 @@ public class DashboardFragment extends Fragment {
                 googleMap.addMarker(new MarkerOptions().position(new LatLng(
                         employee.loc.getLatitude(), employee.loc.getLongitude()))
                         .title(employee.userName));
+
+                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(new LatLng(
+                        employee.loc.getLatitude(), employee.loc.getLongitude()), 12.0f));
             }
         }
     }
