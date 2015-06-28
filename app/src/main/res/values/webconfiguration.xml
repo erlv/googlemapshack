@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!--<string name="employeeUrl">http://localhost:56110/api/Employee</string>-->
+    <!--<string name="projectUrl">http://localhost:56110/api/Project</string>-->
+    <!--<string name="teamUrl">http://localhost:56110/api/Team</string>-->
+    <!--<string name="eventUrl">http://localhost:56110/api/Event</string>-->
+    <!--<string name="locationUrl">http://localhost:56110/api/Location</string>-->
+    <!--<string name="punchUrl">http://localhost:56110/api/Punch</string>-->
+    <!--<string name="userInfoUrl">http://localhost:56110/api/UserInfo</string>-->
+    <!--<string name="taskUrl">http://localhost:56110/api/Task</string>-->
+
+    <string name="employeeUrl">http://dev.geovictoria.com/api/Employee</string>
+    <string name="projectUrl">http://dev.geovictoria.com/api/Project</string>
+    <string name="teamUrl">http://dev.geovictoria.com/api/Team</string>
+    <string name="eventUrl">http://dev.geovictoria.com/api/Event</string>
+    <string name="locationUrl">http://dev.geovictoria.com/api/Location</string>
+    <string name="punchUrl">http://dev.geovictoria.com/api/Punch</string>
+    <string name="userInfoUrl">http://dev.geovictoria.com/api/UserInfo</string>
+    <string name="taskUrl">http://dev.geovictoria.com/api/Task</string>
+
+</resources>
