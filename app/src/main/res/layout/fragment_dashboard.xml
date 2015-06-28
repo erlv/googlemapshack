@@ -13,12 +13,12 @@
         android:id="@+id/map"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="10.00" />
+        android:layout_weight="10.90" />
 
     <ListView
         android:id="@+id/listView"
         android:layout_width="match_parent"
-        android:layout_height="228dp"
+        android:layout_height="230dp"
         android:alwaysDrawnWithCache="true"
         android:dividerHeight="1dp"
         android:horizontalSpacing="3dp"
@@ -27,7 +27,6 @@
         android:stretchMode="columnWidth"
         android:verticalSpacing="3dp"
         android:layout_marginBottom="30dp">
-
     </ListView>
 
 </LinearLayout>

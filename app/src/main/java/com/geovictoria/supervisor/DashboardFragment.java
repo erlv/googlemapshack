@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 
@@ -23,6 +24,8 @@ import com.google.android.gms.maps.model.MarkerOptions;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import Model.Employee;
 
 @TargetApi(Build.VERSION_CODES.HONEYCOMB)
 public class DashboardFragment extends Fragment {
@@ -87,7 +90,7 @@ public class DashboardFragment extends Fragment {
         }
         googleMap = mMapView.getMap();
         // latitude and longitude
-        double latitude = 17.385044;
+        final double latitude = 17.385044;
         double longitude = 78.486671;
 
         // create marker
@@ -106,13 +109,20 @@ public class DashboardFragment extends Fragment {
                 .newCameraPosition(cameraPosition));
 
         // Perform any camera updates here
-
-        //String listItem[] = {"Dell Inspiron", "HTC One X", "HTC Wildfire S", "HTC Sense", "HTC Sensation XE"};
-        List<EmployeeCurloc> values = basicTest();
+        final List<EmployeeCurloc> values = basicTest();
 
         ArrayAdapter<EmployeeCurloc> adapter = new ArrayAdapter<EmployeeCurloc>(getActivity(), android.R.layout.simple_list_item_1, values);
         ListView listView = (ListView) v.findViewById(R.id.listView);
         listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                EmployeeCurloc emp = values.get(position);
+                LatLng loc = new LatLng(emp.loc.getLatitude(), emp.loc.getLongitude());
+                googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 12.0f));
+            }
+        });
 
         return v;
     }
