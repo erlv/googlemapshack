@@ -2,6 +2,7 @@ package com.geovictoria.supervisor;
 
 import android.annotation.TargetApi;
 import android.app.Activity;
+import android.location.Location;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -106,20 +107,17 @@ public class DashboardFragment extends Fragment {
 
         // Perform any camera updates here
 
-        String listItem[]={"Dell Inspiron", "HTC One X", "HTC Wildfire S", "HTC Sense",   "HTC Sensation XE"};
-        List values = new ArrayList();
-        for (int i = 0; i < listItem.length * 5; i++) {
-            values.add(listItem[i % listItem.length]);
-        }
+        //String listItem[] = {"Dell Inspiron", "HTC One X", "HTC Wildfire S", "HTC Sense", "HTC Sensation XE"};
+        List<EmployeeCurloc> values = basicTest();
 
-        ArrayAdapter<String> adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1, values);
+        ArrayAdapter<EmployeeCurloc> adapter = new ArrayAdapter<EmployeeCurloc>(getActivity(), android.R.layout.simple_list_item_1, values);
         ListView listView = (ListView) v.findViewById(R.id.listView);
         listView.setAdapter(adapter);
 
         return v;
     }
 
-    
+
     @Override
     public void onAttach(Activity activity) {
         super.onAttach(activity);
@@ -128,6 +126,45 @@ public class DashboardFragment extends Fragment {
     @Override
     public void onDetach() {
         super.onDetach();
+    }
+
+    private List<EmployeeCurloc> basicTest() {
+        // TODO Auto-generated method stub
+        List<EmployeeCurloc> employees = new ArrayList<EmployeeCurloc>();
+        Location loc1 = this.create_Location(37.391641,
+                -122.0427257, 7, "2015-02-23 19:57:30");
+        EmployeeCurloc tmp1 = new EmployeeCurloc(1, "Name Hello", loc1);
+        Location loc2 = this.create_Location(37.391641,
+                -122.0427257, 30, "2015-02-22 19:57:30");
+        EmployeeCurloc tmp2 = new EmployeeCurloc(2, "Name World", loc2);
+
+        Location loc3 = this.create_Location(37.3852647,
+                -122.0373613, 7, "2015-02-23 19:57:30");
+        EmployeeCurloc tmp3 = new EmployeeCurloc(3, "Name Hell0o", loc3);
+        Location loc4 = this.create_Location(37.3852647,
+                -122.0373613, 30, "2015-02-22 19:57:30");
+        EmployeeCurloc tmp4 = new EmployeeCurloc(4, "Name World0", loc4);
+        Location loc5 = this.create_Location(37.3898679,
+                -122.0182639, 7, "2015-02-23 19:57:30");
+        EmployeeCurloc tmp5 = new EmployeeCurloc(5, "Name Hello2", loc5);
+        Location loc6 = this.create_Location(37.3898679,
+                -122.0182639, 30, "2015-02-22 19:57:30");
+        EmployeeCurloc tmp6 = new EmployeeCurloc(6, "Name World3", loc6);
+        employees.add(tmp1);
+        employees.add(tmp2);
+        employees.add(tmp3);
+        employees.add(tmp4);
+        employees.add(tmp5);
+        employees.add(tmp6);
+        return employees;
+    }
+
+    public Location create_Location(double lat, double lon, double err, String date) {
+        Location res = new Location("");
+        res.setLatitude(lat);
+        res.setLongitude(lon);
+        return res;
+
     }
 
 }
