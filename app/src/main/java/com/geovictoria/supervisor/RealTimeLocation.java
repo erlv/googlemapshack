@@ -20,6 +20,7 @@ import com.google.android.gms.maps.GoogleMap;
 import android.annotation.TargetApi;
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.location.Address;
 import android.location.Geocoder;
 import android.location.Location;
@@ -147,14 +148,14 @@ public class RealTimeLocation extends Fragment {
     public void showInfo(ArrayList<Distance> dist) {
         for (Distance d : dist) {
             TextView txt = new TextView(this.getActivity().getApplicationContext());
-            txt.setText(d.employee.userName + "time :" + d.time2 +
-                    "distance :" + d.distance2);
+            txt.setText(d.employee.userName + "\tTime :" + d.time2 +
+                    "\tDistance :" + d.distance2);
             ll.addView(txt);
         }
         for (EmployeeCurloc employee : employees) {
             if (employee.loc == null) {
                 TextView txt = new TextView(this.getActivity().getApplicationContext());
-                txt.setTextColor(0);
+                txt.setTextColor(Color.BLACK);
                 txt.setText(employee.userName + "is free");
                 ll.addView(txt);
             }
