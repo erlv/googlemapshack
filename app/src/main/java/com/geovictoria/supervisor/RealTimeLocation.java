@@ -31,6 +31,7 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -98,6 +99,14 @@ public class RealTimeLocation extends Fragment {
                         .title(employee.userName));
             }
         }
+
+        Button butt = (Button) v.findViewById(R.id.mapbutton);
+        butt.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                click(v);
+            }
+        });
 
         return v;
     }
