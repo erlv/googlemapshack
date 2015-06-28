@@ -155,7 +155,7 @@ public class RealTimeLocation extends Fragment {
         for (EmployeeCurloc employee : employees) {
             if (employee.loc == null) {
                 TextView txt = new TextView(this.getActivity().getApplicationContext());
-                txt.setTextColor(Color.BLACK);
+                txt.setTextColor(0xFF000000);
                 txt.setText(employee.userName + "is free");
                 ll.addView(txt);
             }
@@ -181,7 +181,7 @@ public class RealTimeLocation extends Fragment {
                 icon(BitmapDescriptorFactory.
                         defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
                 .title("Destination"));
-        map.animateCamera(CameraUpdateFactory.newLatLngZoom(dest, 20.0f));
+        map.animateCamera(CameraUpdateFactory.newLatLngZoom(dest, 12.0f));
         //calcDistance(dest);
         GetDistanceTask gdt = new GetDistanceTask();
         gdt.passData(dest, employees, this);
