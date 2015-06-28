@@ -88,43 +88,37 @@ public class DashboardFragment extends Fragment {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        googleMap = mMapView.getMap();
-        // latitude and longitude
-        final double latitude = 17.385044;
-        double longitude = 78.486671;
-
-        // create marker
-        MarkerOptions marker = new MarkerOptions().position(
-                new LatLng(latitude, longitude)).title("Hello Maps");
-
-        // Changing marker icon
-        marker.icon(BitmapDescriptorFactory
-                .defaultMarker(BitmapDescriptorFactory.HUE_ROSE));
-
-        // adding marker
-        googleMap.addMarker(marker);
-        CameraPosition cameraPosition = new CameraPosition.Builder()
-                .target(new LatLng(17.385044, 78.486671)).zoom(12).build();
-        googleMap.animateCamera(CameraUpdateFactory
-                .newCameraPosition(cameraPosition));
 
         // Perform any camera updates here
-        final List<EmployeeCurloc> values = basicTest();
+        final List<EmployeeCurloc> employees = basicTest();
+        setupMap(employees);
 
-        ArrayAdapter<EmployeeCurloc> adapter = new ArrayAdapter<EmployeeCurloc>(getActivity(), android.R.layout.simple_list_item_1, values);
+        ArrayAdapter<EmployeeCurloc> adapter = new ArrayAdapter<EmployeeCurloc>(getActivity(), android.R.layout.simple_list_item_1, employees);
         ListView listView = (ListView) v.findViewById(R.id.listView);
         listView.setAdapter(adapter);
 
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                EmployeeCurloc emp = values.get(position);
+                EmployeeCurloc emp = employees.get(position);
                 LatLng loc = new LatLng(emp.loc.getLatitude(), emp.loc.getLongitude());
                 googleMap.animateCamera(CameraUpdateFactory.newLatLngZoom(loc, 12.0f));
             }
         });
 
         return v;
+    }
+
+    private void setupMap(List<EmployeeCurloc> employees) {
+        googleMap = mMapView.getMap();
+
+        for(EmployeeCurloc employee : employees) {
+            if (employee.loc != null) {
+                googleMap.addMarker(new MarkerOptions().position(new LatLng(
+                        employee.loc.getLatitude(), employee.loc.getLongitude()))
+                        .title(employee.userName));
+            }
+        }
     }
 
 
