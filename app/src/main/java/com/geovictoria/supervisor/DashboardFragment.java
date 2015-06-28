@@ -138,25 +138,26 @@ public class DashboardFragment extends Fragment {
     private List<EmployeeCurloc> basicTest() {
         // TODO Auto-generated method stub
         List<EmployeeCurloc> employees = new ArrayList<EmployeeCurloc>();
+        //Update local employeeLocs.length.
         Location loc1 = this.create_Location(37.391641,
                 -122.0427257, 7, "2015-02-23 19:57:30");
-        EmployeeCurloc tmp1 = new EmployeeCurloc(1, "Name Hello", loc1);
-        Location loc2 = this.create_Location(37.391641,
-                -122.0427257, 30, "2015-02-22 19:57:30");
-        EmployeeCurloc tmp2 = new EmployeeCurloc(2, "Name World", loc2);
+        EmployeeCurloc tmp1 = new EmployeeCurloc(1, "Abelardo Sánchez",loc1 );
+        Location loc2 = this.create_Location(37.395271,
+                -122.1046129, 30, "2015-02-22 19:57:30");
+        EmployeeCurloc tmp2 = new EmployeeCurloc(2, "Belisario Lisboa",loc2 );
 
-        Location loc3 = this.create_Location(37.3852647,
-                -122.0373613, 7, "2015-02-23 19:57:30");
-        EmployeeCurloc tmp3 = new EmployeeCurloc(3, "Name Hell0o", loc3);
+        Location loc3 = this.create_Location(37.3802438,
+                -122.0000839, 7, "2015-02-23 19:57:30");
+        EmployeeCurloc tmp3 = new EmployeeCurloc(3, "Elsa pito",loc3 );
         Location loc4 = this.create_Location(37.3852647,
                 -122.0373613, 30, "2015-02-22 19:57:30");
-        EmployeeCurloc tmp4 = new EmployeeCurloc(4, "Name World0", loc4);
-        Location loc5 = this.create_Location(37.3898679,
-                -122.0182639, 7, "2015-02-23 19:57:30");
-        EmployeeCurloc tmp5 = new EmployeeCurloc(5, "Name Hello2", loc5);
-        Location loc6 = this.create_Location(37.3898679,
-                -122.0182639, 30, "2015-02-22 19:57:30");
-        EmployeeCurloc tmp6 = new EmployeeCurloc(6, "Name World3", loc6);
+        EmployeeCurloc tmp4 = new EmployeeCurloc(4, "Dagoberto Márquez",loc4 );
+        Location loc5 = this.create_Location(37.4282632,
+                -122.1712559, 7, "2015-02-23 19:57:30");
+        EmployeeCurloc tmp5 = new EmployeeCurloc(5, "Edgardo Montero",loc5 );
+        Location loc6 = this.create_Location(37.3860152,
+                -121.9989037, 30, "2015-02-22 19:57:30");
+        EmployeeCurloc tmp6 = new EmployeeCurloc(6, "Lord Eddard Stark",loc6 );
         employees.add(tmp1);
         employees.add(tmp2);
         employees.add(tmp3);
